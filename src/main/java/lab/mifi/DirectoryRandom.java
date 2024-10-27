@@ -16,6 +16,10 @@ public class DirectoryRandom {
             List.of("Группа 101", "Группа 205", "Группа 309", "Группа 412", "Группа 503", "Группа 614", "Группа 708", "Группа 802", "Группа 911", "Группа 1007", "Группа 1105", "Группа 1213", "Группа 1304", "Группа 1410", "Группа 1506")
     );
 
+    private static final ArrayList<String> country = new ArrayList<>(
+            List.of("Россия", "США", "Китай", "Япония", "Германия", "Франция", "Великобритания", "Канада", "Австралия", "Индия", "Бразилия", "Италия", "Испания", "Мексика", "Южная Корея")
+    );
+
     public static ArrayList<String> getNames(){
         return new ArrayList<>(List.copyOf(names));
     }
@@ -26,5 +30,9 @@ public class DirectoryRandom {
 
     public static ArrayList<String> getGroups(){
         return new ArrayList<>(List.copyOf(groups));
+    }
+
+    public static ArrayList<String> getCountry(){
+        return new ArrayList<>(List.copyOf(country));
     }
 }
