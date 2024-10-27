@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -11,28 +12,28 @@ import java.util.stream.Collectors;
 public class UserManipulation {
     private final ArrayList<User> users;
 
-    public ArrayList<User> getFilterLastNameUsers(String lastName){
+    public ArrayList<User> getSortedByLastName(){
         return new ArrayList<>(
                 users.stream()
-                        .filter(u -> u.getLastName().equals(lastName))
+                        .sorted(Comparator.comparing(User::getLastName))
                         .toList()
         );
     }
 
-    public ArrayList<User> getFilterAgeUsers(int age){
+    public ArrayList<User> getSortedByAge(){
         return new ArrayList<>(
                 users.stream()
-                        .filter(u -> u.getAge() == age)
+                        .sorted(Comparator.comparing(User::getAge))
                         .toList()
         );
     }
 
-    public boolean isSevenAgeUsers(){
+    public boolean isSevenAge(){
         return users.stream()
                 .allMatch(u -> u.getAge() > 7);
     }
 
-    public double middleAgeUsers(){
+    public double middleAge(){
         return (double) users.stream()
                 .map(User::getAge)
                 .reduce(0, Integer::sum) / users.size();
